@@ -14,9 +14,6 @@ spec:
             - name: {{ .Chart.Name }}
               image: {{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
-              env:
-                - name: AWS_DEFAULT_REGION
-                  value: {{ .Values.awsRegion }}
               command:
                 - sh
                 - -c
