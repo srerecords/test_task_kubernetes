@@ -1,0 +1,12 @@
+serviceAccountArn: arn:aws:iam::132948732473:role/s3-copy
+awsRegion: us-east-1
+serviceAccountName: s3-copy-sa
+image: 
+  registry: 132948732473.dkr.ecr.us-east-1.amazonaws.com
+  repository: s3-copy
+  tag: 1.0.0
+  pullPolicy: IfNotPresent
+cronjob:
+  name: s3-copy
+  time: "0 * * * *" # Every hour
+  command: python3 s3_copy.py
